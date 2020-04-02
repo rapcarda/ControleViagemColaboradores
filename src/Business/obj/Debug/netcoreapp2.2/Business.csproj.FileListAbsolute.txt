@@ -1,0 +1,8 @@
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\bin\Debug\netcoreapp2.2\Business.deps.json
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\bin\Debug\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\bin\Debug\netcoreapp2.2\Business.pdb
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\obj\Debug\netcoreapp2.2\Business.csproj.CoreCompileInputs.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfoInputs.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfo.cs
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\obj\Debug\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagem\Projeto\ControleViagem\src\Business\obj\Debug\netcoreapp2.2\Business.pdb
