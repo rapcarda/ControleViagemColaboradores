@@ -21,6 +21,11 @@ namespace Data.Repository
             
         }
 
+        public bool ExisteCodigo(Pais entity)
+        {
+            return DBSet.AsNoTracking().Any(x => x.Id == entity.Id);
+        }
+
         public bool ExisteDescricao(Pais entity)
         {
             return DBSet.AsNoTracking().Any(x => x.Descricao.ToUpper().Trim() == entity.Descricao.ToUpper().Trim() 
