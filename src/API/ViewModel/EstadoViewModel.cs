@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace API.ViewModel
 {
-    public class PaisViewModel
+    public class EstadoViewModel
     {
         [Key]
         public Guid Id { get; set; }
@@ -15,6 +14,15 @@ namespace API.ViewModel
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
 
-        public IEnumerable<EstadoViewModel> Estados { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [StringLength(2, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres!")]
+        public string UF { get; set; }
+
+        public Guid PaisId { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string NomePais { get; set; }
+
+        //public IEnumerable<CidadeViewModel> Cidades { get; set; }
     }
 }

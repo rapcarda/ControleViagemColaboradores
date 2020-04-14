@@ -9,6 +9,9 @@ namespace API.Configuration
         public AutoMapperConfig()
         {
             CreateMap<Pais, PaisViewModel>().ReverseMap();
+            CreateMap<EstadoViewModel, Estado>();
+            CreateMap<Estado, EstadoViewModel>()
+                .ForMember(dest => dest.NomePais, opt => opt.MapFrom(src => src.Pais.Descricao));
         }
     }
 }
