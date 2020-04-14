@@ -59,7 +59,7 @@ namespace Data.Repository
 
         public virtual async Task<TEntity> PesquisarId(Guid id)
         {
-            return await DBSet.FindAsync(id);
+            return await DBSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<int> SaveChanges()

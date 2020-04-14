@@ -7,7 +7,6 @@ C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagem
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\API.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\API.pdb
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.csprojAssemblyReference.cache
-C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.csproj.CoreCompileInputs.cache
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cache
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cs
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.AssemblyInfoInputs.cache
@@ -16,3 +15,9 @@ C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagem
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.pdb
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.genruntimeconfig.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\Data.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\Business.pdb
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\Data.pdb
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.csproj.CopyComplete
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.csproj.CoreCompileInputs.cache
