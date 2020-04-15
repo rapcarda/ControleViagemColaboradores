@@ -64,6 +64,11 @@ namespace Business.Services
             return await _estadoRepository.PesquisarId(id);
         }
 
+        public async Task<IEnumerable<Estado>> ObterEstadosPaises()
+        {
+            return await _estadoRepository.ObterEstadosPaises();
+        }
+
         public bool ExisteDescricao(Estado entity)
         {
             return _estadoRepository.ExisteDescricao(entity);
@@ -76,7 +81,7 @@ namespace Business.Services
 
             if (ExisteDescricao(entity))
             {
-                Notificar("Já existe um Estado com o mesmo descrição");
+                Notificar("Já existe um Estado com a mesma descrição");
                 return false;
             }
 
@@ -87,11 +92,6 @@ namespace Business.Services
             }
 
             return true;
-        }
-
-        public async Task<IEnumerable<Estado>> ObterEstadosPaises()
-        {
-            return await _estadoRepository.ObterEstadosPaises();
         }
     }
 }

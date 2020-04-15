@@ -21,6 +21,11 @@ namespace Data.Repository
                 && x.Id != entity.Id);
         }
 
+        public bool ExisteEstado(Guid id)
+        {
+            return DBSet.AsNoTracking().Any(x => x.Id == id);
+        }
+
         public async Task<Estado> ObterEstadoCidades(Guid id)
         {
             return await DBSet.AsNoTracking().Include(x => x.Cidades).FirstOrDefaultAsync(x => x.Id == id);

@@ -17,6 +17,8 @@ namespace API.Configuration
             services.AddScoped<IPaisRepository, PaisRepository>();
             services.AddScoped<IEstadoService, EstadoService>();
             services.AddScoped<IEstadoRepository, EstadoRepository>();
+            services.AddScoped<ICidadeRepository, CidadeRepository>();
+            services.AddScoped<ICidadeService, CidadeService>();
             return services;
         }
     }
