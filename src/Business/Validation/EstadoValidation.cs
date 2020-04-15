@@ -14,6 +14,9 @@ namespace Business.Validation
             RuleFor(r => r.UF)
                 .NotNull().WithMessage("O campo {PropertyName} precisa ser fornecido!")
                 .MaximumLength(2).WithMessage("O campo {PropertName} deve ter no máximo {MaxLength} caracteres!");
+
+            RuleFor(r => r.PaisId)
+                .NotNull().WithMessage("O campo {PropertyName} precisa ser fornecido!");
         }
     }
 }

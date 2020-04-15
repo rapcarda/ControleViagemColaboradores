@@ -8,7 +8,7 @@ namespace Business.Interfaces
     {
         Task<Pais> ObterPaisEstados(Guid id);
 
-        bool ExisteCodigo(Pais entity);
+        bool ExistePais(Guid id);
         bool ExisteDescricao(Pais entity);
     }
 }

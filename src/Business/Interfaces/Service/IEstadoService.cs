@@ -13,11 +13,11 @@ namespace Business.Interfaces.Service
         Task Excluir(Guid id);
 
         Task<Estado> ObterEstadoCidades(Guid id);
+        Task<IEnumerable<Estado>> ObterEstadosPaises();
         Task<Estado> PesquisarId(Guid id);
         Task<List<Estado>> ObterTodos();
         Task<IEnumerable<Estado>> Pesquisar(Expression<Func<Estado, bool>> pesquisa);
 
-        bool ExisteCodigo(Estado entity);
         bool ExisteDescricao(Estado entity);
     }
 }

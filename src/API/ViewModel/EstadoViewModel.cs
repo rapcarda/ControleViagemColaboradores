@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.ViewModel
 {
-    public class EstadoViewModel
+    public class EstadoViewModel : BaseViewModel
     {
-        [Key]
-        public Guid Id { get; set; }
-
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(100, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres!")]
         [DisplayName("Descrição")]
@@ -18,6 +15,7 @@ namespace API.ViewModel
         [StringLength(2, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres!")]
         public string UF { get; set; }
 
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public Guid PaisId { get; set; }
 
         [ScaffoldColumn(false)]

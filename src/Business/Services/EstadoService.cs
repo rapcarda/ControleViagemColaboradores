@@ -13,11 +13,14 @@ namespace Business.Services
     public class EstadoService : BaseService<Estado>, IEstadoService
     {
         private IEstadoRepository _estadoRepository;
+        private IPaisRepository _paisRespository;
 
         public EstadoService(IEstadoRepository estadoRepository,
+                             IPaisRepository paisRespository,
                              INotificador notificador): base(notificador)
         {
             _estadoRepository = estadoRepository;
+            _paisRespository = paisRespository;
         }
 
         public async Task Adicionar(Estado entity)
@@ -61,11 +64,6 @@ namespace Business.Services
             return await _estadoRepository.PesquisarId(id);
         }
 
-        public bool ExisteCodigo(Estado entity)
-        {
-            return _estadoRepository.ExisteCodigo(entity);
-        }
-
         public bool ExisteDescricao(Estado entity)
         {
             return _estadoRepository.ExisteDescricao(entity);
@@ -76,19 +74,24 @@ namespace Business.Services
             if (!ExecutarValidacao(new EstadoValidation(), entity))
                 return false;
 
-            if (ExisteCodigo(entity))
+            if (ExisteDescricao(entity))
             {
-                Notificar("Já existe um Estado com o mesmo código");
+                Notificar("Já existe um Estado com o mesmo descrição");
                 return false;
             }
 
-            if (ExisteDescricao(entity))
+            if (!_paisRespository.ExistePais(entity.PaisId))
             {
-                Notificar("Já existe um Estado com o mesmo código");
+                Notificar("País não cadastrado!");
                 return false;
             }
 
             return true;
+        }
+
+        public async Task<IEnumerable<Estado>> ObterEstadosPaises()
+        {
+            return await _estadoRepository.ObterEstadosPaises();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EstadoViewModel>>> Get()
         {
-            return Ok(_mapper.Map<IEnumerable<EstadoViewModel>>(await _estadoService.ObterTodos()));
+            return Ok(_mapper.Map<IEnumerable<EstadoViewModel>>(await _estadoService.ObterEstadosPaises()));
         }
 
         [HttpGet("{id:guid}")]
@@ -47,7 +47,7 @@ namespace API.Controllers
         public async Task<ActionResult<EstadoViewModel>> Post(EstadoViewModel estadoViewModel)
         {
             if (!ModelState.IsValid)
-                CustomResponse(ModelState);
+                return CustomResponse(ModelState);
 
             await _estadoService.Adicionar(_mapper.Map<Estado>(estadoViewModel));
             return CustomResponse(estadoViewModel);

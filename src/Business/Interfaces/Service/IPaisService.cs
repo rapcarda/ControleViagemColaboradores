@@ -17,7 +17,6 @@ namespace Business.Interfaces
         Task<List<Pais>> ObterTodos();
         Task<IEnumerable<Pais>> Pesquisar(Expression<Func<Pais, bool>> pesquisa);
 
-        bool ExisteCodigo(Pais entity);
         bool ExisteDescricao(Pais entity);
     }
 }

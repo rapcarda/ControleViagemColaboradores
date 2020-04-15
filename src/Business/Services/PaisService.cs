@@ -65,11 +65,6 @@ namespace Business.Services
             return await _paisRepository.PesquisarId(id);
         }
 
-        public bool ExisteCodigo(Pais entity)
-        {
-            return _paisRepository.ExisteCodigo(entity);
-        }
-
         public bool ExisteDescricao(Pais entity)
         {
             return _paisRepository.ExisteDescricao(entity);
@@ -77,12 +72,6 @@ namespace Business.Services
 
         private bool IsValid(Pais entity)
         {
-            if (ExisteCodigo(entity))
-            {
-                Notificar("Já existe um País com o mesmo código");
-                return false;
-            }
-
             if (ExisteDescricao(entity))
             {
                 Notificar("Já existe um País com a mesma descrição");

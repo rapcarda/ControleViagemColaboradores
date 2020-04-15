@@ -8,7 +8,7 @@ namespace Business.Models
 
         protected Entity()
         {
-            Id = Guid.NewGuid();
+            //Id = Guid.NewGuid();
         }
     }
 }

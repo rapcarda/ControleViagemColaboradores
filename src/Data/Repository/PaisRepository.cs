@@ -21,9 +21,9 @@ namespace Data.Repository
             
         }
 
-        public bool ExisteCodigo(Pais entity)
+        public bool ExistePais(Guid id)
         {
-            return DBSet.AsNoTracking().Any(x => x.Id == entity.Id);
+            return DBSet.AsNoTracking().Any(x => x.Id == id);
         }
 
         public bool ExisteDescricao(Pais entity)
