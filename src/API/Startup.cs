@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Configuration;
+﻿using API.Configuration;
 using AutoMapper;
 using Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace API
 {
@@ -34,6 +26,8 @@ namespace API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddIdentityConfiguration(Configuration);
+
             /* o typeof do parâmetro é para dizer para o auto mapper que tudo que vier do Startup ele irá resolver */
             services.AddAutoMapper(typeof(Startup));
             services.WebApiConfig();
@@ -53,6 +47,7 @@ namespace API
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseMvcConfig();
         }
     }
