@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using API.Extensions;
 using API.ViewModel.User;
 using Business.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -19,8 +16,11 @@ namespace API.Controllers
         /* Responsável por criar o usuário */
         private readonly UserManager<IdentityUser> _userManager;
 
+        private readonly AppSettings _appSettings;
+
         public AuthController(SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
+                              IOptions< AppSettings _appSettings
                               INotificador notificador): base(notificador)
         {
             _signInManager = signInManager;
