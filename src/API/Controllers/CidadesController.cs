@@ -1,4 +1,5 @@
-﻿using API.ViewModel;
+﻿using API.Extensions;
+using API.ViewModel;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Interfaces.Service;
@@ -33,6 +34,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<IEnumerable<CidadeViewModel>>(await _cidadeService.ObterCidadesEstadosPaises()));
         }
 
+        [ClaimsAuthorize("cidade", "getId")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<CidadeViewModel>> GetById(Guid id)
         {
@@ -44,6 +46,7 @@ namespace API.Controllers
             return Ok(cidade);
         }
 
+        [ClaimsAuthorize("cidade", "post")]
         [HttpPost]
         public async Task<ActionResult<CidadeViewModel>> Post(CidadeViewModel CidadeViewModel)
         {
@@ -54,6 +57,7 @@ namespace API.Controllers
             return CustomResponse(CidadeViewModel);
         }
 
+        [ClaimsAuthorize("cidade", "put")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<CidadeViewModel>> Put(Guid id, CidadeViewModel CidadeViewModel)
         {
@@ -67,6 +71,7 @@ namespace API.Controllers
             return CustomResponse(CidadeViewModel);
         }
 
+        [ClaimsAuthorize("cidade", "delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<CidadeViewModel>> Delete(Guid id)
         {

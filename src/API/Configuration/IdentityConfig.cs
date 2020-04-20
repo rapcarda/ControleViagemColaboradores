@@ -57,6 +57,8 @@ namespace API.Configuration
                     ValidateAudience = true,
 
                     /* Diz qual a audiencia e qual o issuer (estas informações tem que vir no token) */
+                    /* No caso esta usando um Issuer apenas e uma Audiencia apenas, mas pode passar uma lista para validar em */
+                    /* mais de um lugar (Muito usado para micro serviços) */
                     ValidAudience = appSettings.ValidoEm,
                     ValidIssuer = appSettings.Emissor
                 };

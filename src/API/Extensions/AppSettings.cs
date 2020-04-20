@@ -11,7 +11,7 @@ namespace API.Extensions
         public string Secret { get; set; }
 
         /* Por quantas horas o token será válido */
-        public string ExpiracaoHoras { get; set; }
+        public int ExpiracaoHoras { get; set; }
 
         /*Quem emite, no caso, a aplicação */
         public string Emissor { get; set; }

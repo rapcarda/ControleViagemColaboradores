@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Extensions;
 using API.ViewModel;
 using AutoMapper;
 using Business.Interfaces;
@@ -35,6 +36,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<IEnumerable<EstadoViewModel>>(await _estadoService.ObterEstadosPaises()));
         }
 
+        [ClaimsAuthorize("estado", "getId")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<EstadoViewModel>> GetById(Guid id)
         {
@@ -46,6 +48,7 @@ namespace API.Controllers
             return Ok(estado);
         }
 
+        [ClaimsAuthorize("estado", "post")]
         [HttpPost]
         public async Task<ActionResult<EstadoViewModel>> Post(EstadoViewModel estadoViewModel)
         {
@@ -56,6 +59,7 @@ namespace API.Controllers
             return CustomResponse(estadoViewModel);
         }
 
+        [ClaimsAuthorize("estado", "put")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<EstadoViewModel>> Put(Guid id, EstadoViewModel estadoViewModel)
         {
@@ -69,6 +73,7 @@ namespace API.Controllers
             return CustomResponse(estadoViewModel);
         }
 
+        [ClaimsAuthorize("estado", "delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<EstadoViewModel>> Delete(Guid id)
         {

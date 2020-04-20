@@ -1,4 +1,5 @@
-﻿using API.ViewModel;
+﻿using API.Extensions;
+using API.ViewModel;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Models;
@@ -32,6 +33,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<IEnumerable<PaisViewModel>>(await _paisService.ObterTodos()));
         }
 
+        [ClaimsAuthorize("pais", "getId")]
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<PaisViewModel>> GetById(Guid id)
         {
@@ -43,6 +45,7 @@ namespace API.Controllers
             return Ok(pais);
         }
 
+        [ClaimsAuthorize("pais", "post")]
         [HttpPost]
         public async Task<ActionResult<PaisViewModel>> Post(PaisViewModel paisViewModel)
         {
@@ -53,6 +56,7 @@ namespace API.Controllers
             return CustomResponse(paisViewModel);
         }
 
+        [ClaimsAuthorize("pais", "put")]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<PaisViewModel>> Put(Guid id, PaisViewModel paisViewModel)
         {
@@ -66,6 +70,7 @@ namespace API.Controllers
             return CustomResponse(paisViewModel);
         }
 
+        [ClaimsAuthorize("pais", "delete")]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<PaisViewModel>> Delete(Guid id)
         {

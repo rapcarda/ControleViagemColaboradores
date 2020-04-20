@@ -1,9 +1,11 @@
-﻿using Business.Interfaces;
+﻿using API.Extensions;
+using Business.Interfaces;
 using Business.Interfaces.Repository;
 using Business.Interfaces.Service;
 using Business.Notifications;
 using Business.Services;
 using Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace API.Configuration
@@ -19,6 +21,11 @@ namespace API.Configuration
             services.AddScoped<IEstadoRepository, EstadoRepository>();
             services.AddScoped<ICidadeRepository, CidadeRepository>();
             services.AddScoped<ICidadeService, CidadeService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
+
+
             return services;
         }
     }
