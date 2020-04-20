@@ -20,7 +20,8 @@ namespace API.Controllers
 
         public PaisesController(IPaisService paisService,
                                 IMapper mapper,
-                                INotificador notificador) : base(notificador)
+                                INotificador notificador,
+                                IUser user) : base(notificador, user)
         {
             _paisService = paisService;
             _mapper = mapper;

@@ -23,7 +23,8 @@ namespace API.Controllers
 
         public EstadosController(IEstadoService estadoService,
                                  IMapper mapper, 
-                                 INotificador notificador) : base(notificador)
+                                 INotificador notificador,
+                                 IUser user) : base(notificador, user)
         {
             _estadoService = estadoService;
             _mapper = mapper;

@@ -39,11 +39,15 @@ namespace API
         {
             if (env.IsDevelopment())
             {
+                app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseCors("Production");
+                /* Forçando ser Https. Diz para o browser que a app só fala HTTPS */
+                /* Porém, se algum externo chamar a APP sem https, então a app vai se comunicar sem https */
+                /* Por isso usa UseHttpsRedirection AppConfig, e com isso mesmo vindo sem https, ele força ser https */
                 app.UseHsts();
             }
 

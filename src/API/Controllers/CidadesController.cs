@@ -21,7 +21,8 @@ namespace API.Controllers
 
         public CidadesController(ICidadeService cidadeService,
                                  IMapper mapper,
-                                 INotificador notificador): base(notificador)
+                                 INotificador notificador,
+                                 IUser user) : base(notificador, user)
         {
             _cidadeService = cidadeService;
             _mapper = mapper;

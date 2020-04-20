@@ -19,11 +19,20 @@ namespace API.Configuration
 
             services.AddCors(options =>
             {
+                /* Adicionou uma politica de CORS, para a app receber qualquer chamada externa, isso apenas para desenvolvimento */
                 options.AddPolicy("Development",
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
+
+                /* Adicionou uma politica de CORS, para acesso externo na APP, para produção */
+                options.AddPolicy("Production",
+                    builder => builder
+                    .WithMethods("GET")
+                    .WithOrigins("http://qualquer.com") //somente este site pode fazer get na app
+                    .SetIsOriginAllowedToAllowWildcardSubdomains());
+
             });
 
             return services;
@@ -31,6 +40,7 @@ namespace API.Configuration
 
         public static IApplicationBuilder UseMvcConfig(this IApplicationBuilder app)
         {
+            /* Caso a chamada seja Http, força ser Https */
             app.UseHttpsRedirection();
             app.UseMvc();
 

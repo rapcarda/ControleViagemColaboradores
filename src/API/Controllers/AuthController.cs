@@ -32,7 +32,8 @@ namespace API.Controllers
         public AuthController(SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
                               IOptions<AppSettings> appSettings,
-                              INotificador notificador) : base(notificador)
+                              INotificador notificador,
+                              IUser user) : base(notificador, user)
         {
             _signInManager = signInManager;
             _userManager = userManager;
