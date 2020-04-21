@@ -31,6 +31,9 @@ namespace API
             /* o typeof do parâmetro é para dizer para o auto mapper que tudo que vier do Startup ele irá resolver */
             services.AddAutoMapper(typeof(Startup));
             services.WebApiConfig();
+
+            services.SwaggerConfigure();
+
             services.ResolveDependencies();
         }
 
@@ -53,6 +56,7 @@ namespace API
 
             app.UseAuthentication();
             app.UseMvcConfig();
+            app.SwaggerConfigureApp();
         }
     }
 }

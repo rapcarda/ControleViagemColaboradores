@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 namespace API.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PaisesController : MainController
     {
         private IPaisService _paisService;

@@ -11,6 +11,19 @@ namespace API.Configuration
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true; //Se não tiver versão, utiliza a default
+                options.DefaultApiVersion = new ApiVersion(1, 0); // e a versão default quando não tiver definida, é 1.0
+                options.ReportApiVersions = true; //Isso para passar no header do response, se a API esta ok, ou obsoleta, se tem versão mais recente
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV"; //nomenclatura de versionamento, vai ficar v e depois até 3 parametros, exemplo v1.0.0
+                options.SubstituteApiVersionInUrl = true; //se tiver uma rota padrão, substitui o numero da versão pela default por exemplo
+            });
+
             /* Para não retornar erro do ModelState, e sim os erros personalidados */
             services.Configure<ApiBehaviorOptions>(options =>
             {
