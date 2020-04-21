@@ -1,8 +1,10 @@
 ﻿using API.Configuration;
+using API.Controllers;
 using AutoMapper;
 using Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,13 +34,15 @@ namespace API
             services.AddAutoMapper(typeof(Startup));
             services.WebApiConfig();
 
-            services.SwaggerConfigure();
+            services.AddSwaggerConfig();
+
+            services.HealthChecksConfigure(Configuration);
 
             services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
             {
@@ -56,7 +60,8 @@ namespace API
 
             app.UseAuthentication();
             app.UseMvcConfig();
-            app.SwaggerConfigureApp();
+            app.UseSwaggerConfig(provider);
+            app.UseHealthChecks();
         }
     }
 }
