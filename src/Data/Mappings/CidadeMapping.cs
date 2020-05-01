@@ -14,6 +14,10 @@ namespace Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.HasMany(p => p.Empresas)
+                .WithOne(p => p.Cidade)
+                .HasForeignKey(p => p.CidadeId);
+
             builder.ToTable("Cidades");
         }
     }

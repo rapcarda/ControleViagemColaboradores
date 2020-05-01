@@ -62,6 +62,11 @@ namespace Data.Repository
             return await DBSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public virtual bool ExisteEntidade(Guid id)
+        {
+            return DBSet.AsNoTracking().Any(x => x.Id == id);
+        }
+
         public async Task<int> SaveChanges()
         {
             return await _db.SaveChangesAsync();

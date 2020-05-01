@@ -37,6 +37,28 @@ namespace Data.Migrations
                     b.ToTable("Cidades");
                 });
 
+            modelBuilder.Entity("Business.Models.Empresa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CidadeId");
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CidadeId");
+
+                    b.ToTable("Empresa");
+                });
+
             modelBuilder.Entity("Business.Models.Estado", b =>
                 {
                     b.Property<Guid>("Id")
@@ -78,6 +100,13 @@ namespace Data.Migrations
                     b.HasOne("Business.Models.Estado", "Estado")
                         .WithMany("Cidades")
                         .HasForeignKey("EstadoId");
+                });
+
+            modelBuilder.Entity("Business.Models.Empresa", b =>
+                {
+                    b.HasOne("Business.Models.Cidade", "Cidade")
+                        .WithMany("Empresas")
+                        .HasForeignKey("CidadeId");
                 });
 
             modelBuilder.Entity("Business.Models.Estado", b =>

@@ -13,6 +13,7 @@ namespace Business.Interfaces
         Task Excluir(Guid id);
 
         Task<TEntity> PesquisarId(Guid id);
+        bool ExisteEntidade(Guid id);
         Task<List<TEntity>> ObterTodos();
         Task<IEnumerable<TEntity>> Pesquisar(Expression<Func<TEntity, bool>> pesquisa);
         Task<int> SaveChanges();

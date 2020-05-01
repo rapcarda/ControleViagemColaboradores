@@ -17,6 +17,10 @@ namespace API.Configuration
             CreateMap<CidadeViewModel, Cidade>();
             CreateMap<Cidade, CidadeViewModel>()
                 .ForMember(dest => dest.NomeEstado, opt => opt.MapFrom(src => src.Estado.Descricao));
+
+            CreateMap<EmpresaViewModel, Empresa>();
+            CreateMap<Empresa, EmpresaViewModel>()
+                .ForMember(dest => dest.NomeCidade, opt => opt.MapFrom(src => src.Cidade.Descricao));
         }
     }
 }

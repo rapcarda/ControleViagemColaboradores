@@ -1,0 +1,9 @@
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\bin\Release\netcoreapp2.2\Business.deps.json
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\bin\Release\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\bin\Release\netcoreapp2.2\Business.pdb
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.csprojAssemblyReference.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.csproj.CoreCompileInputs.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.AssemblyInfoInputs.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.AssemblyInfo.cs
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Business\obj\Release\netcoreapp2.2\Business.pdb
