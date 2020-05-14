@@ -39,6 +39,7 @@ namespace API
             services.HealthChecksConfigure(Configuration);
 
             services.ResolveDependencies();
+            HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

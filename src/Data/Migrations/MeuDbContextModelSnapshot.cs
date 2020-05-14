@@ -37,6 +37,39 @@ namespace Data.Migrations
                     b.ToTable("Cidades");
                 });
 
+            modelBuilder.Entity("Business.Models.Departamento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departamento");
+                });
+
+            modelBuilder.Entity("Business.Models.EmprDept", b =>
+                {
+                    b.Property<Guid>("EmpresaId");
+
+                    b.Property<Guid>("DepartamentoId");
+
+                    b.Property<Guid>("Id");
+
+                    b.HasKey("EmpresaId", "DepartamentoId");
+
+                    b.HasIndex("DepartamentoId");
+
+                    b.ToTable("EmprDept");
+                });
+
             modelBuilder.Entity("Business.Models.Empresa", b =>
                 {
                     b.Property<Guid>("Id")
@@ -100,6 +133,17 @@ namespace Data.Migrations
                     b.HasOne("Business.Models.Estado", "Estado")
                         .WithMany("Cidades")
                         .HasForeignKey("EstadoId");
+                });
+
+            modelBuilder.Entity("Business.Models.EmprDept", b =>
+                {
+                    b.HasOne("Business.Models.Departamento", "Departamento")
+                        .WithMany("EmpresasDepartamento")
+                        .HasForeignKey("DepartamentoId");
+
+                    b.HasOne("Business.Models.Empresa", "Empresa")
+                        .WithMany("EmpresaDepartamentos")
+                        .HasForeignKey("EmpresaId");
                 });
 
             modelBuilder.Entity("Business.Models.Empresa", b =>

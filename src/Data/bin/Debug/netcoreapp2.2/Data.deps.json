@@ -11,7 +11,8 @@
           "Business": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
           "Microsoft.EntityFrameworkCore.Relational": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
+          "HibernatingRhinos.Profiler.Appender": "5.0.0.0"
         },
         "runtime": {
           "Data.dll": {}
@@ -494,6 +495,14 @@
         "runtime": {
           "Business.dll": {}
         }
+      },
+      "HibernatingRhinos.Profiler.Appender/5.0.0.0": {
+        "runtime": {
+          "HibernatingRhinos.Profiler.Appender.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.5044.0"
+          }
+        }
       }
     }
   },
@@ -883,6 +892,11 @@
     },
     "Business/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HibernatingRhinos.Profiler.Appender/5.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

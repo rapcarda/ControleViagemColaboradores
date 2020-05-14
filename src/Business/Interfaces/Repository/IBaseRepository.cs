@@ -9,11 +9,12 @@ namespace Business.Interfaces
     public interface IBaseRepository<TEntity> : IDisposable where TEntity : Entity
     {
         Task Adicionar(TEntity entity);
+        Task AdicionarLista(IEnumerable<TEntity> listEntity);
         Task Alterar(TEntity entity);
-        Task Excluir(Guid id);
+        Task Excluir(TEntity entity);
 
         Task<TEntity> PesquisarId(Guid id);
-        bool ExisteEntidade(Guid id);
+        bool ExistePorId(Guid id);
         Task<List<TEntity>> ObterTodos();
         Task<IEnumerable<TEntity>> Pesquisar(Expression<Func<TEntity, bool>> pesquisa);
         Task<int> SaveChanges();

@@ -14,6 +14,10 @@ namespace Data.Context
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Estado> Estado { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
+        public DbSet<Departamento> Departamento { get; set; }
+        public DbSet<EmprDept> EmprDept { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

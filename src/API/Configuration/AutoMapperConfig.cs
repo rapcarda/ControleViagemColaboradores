@@ -1,6 +1,8 @@
 ﻿using API.ViewModel;
 using AutoMapper;
 using Business.Models;
+using System;
+using System.Linq;
 
 namespace API.Configuration
 {
@@ -21,6 +23,16 @@ namespace API.Configuration
             CreateMap<EmpresaViewModel, Empresa>();
             CreateMap<Empresa, EmpresaViewModel>()
                 .ForMember(dest => dest.NomeCidade, opt => opt.MapFrom(src => src.Cidade.Descricao));
+
+            CreateMap<DepartamentoViewModel, Departamento>();
+                //.ForMember(dest => dest.EmpresasDepartamento, opt => opt.MapFrom(src => src.EmpresasId.Select(e => new EmprDept
+                // {
+                //     Id = Guid.NewGuid(),
+                //     EmpresaId = e,
+                //     DepartamentoId = 
+                // })));
+            CreateMap<Departamento, DepartamentoViewModel>()
+                .ForMember(dest => dest.EmpresasId, opt => opt.MapFrom(src => src.EmpresasDepartamento.Select(e => e.EmpresaId)));
         }
     }
 }

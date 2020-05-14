@@ -25,6 +25,9 @@ namespace API.Configuration
             services.AddScoped<ICidadeService, CidadeService>();
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
             services.AddScoped<IEmpresaService, EmpresaService>();
+            services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
+            services.AddScoped<IDepartamentoService, DepartamentoService>();
+            services.AddScoped<IEmprDeptRepository, EmprDeptRepositoy>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();

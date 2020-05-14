@@ -33,15 +33,24 @@ namespace Data.Repository
             await SaveChanges();
         }
 
+        public virtual async Task AdicionarLista(IEnumerable<TEntity> listEntity)
+        {
+            foreach(TEntity entity in listEntity)
+            {
+                DBSet.Add(entity);
+                await SaveChanges();
+            }
+        }
+
         public virtual async Task Alterar(TEntity entity)
         {
             DBSet.Update(entity);
             await SaveChanges();
         }
 
-        public virtual async Task Excluir(Guid id)
+        public virtual async Task Excluir(TEntity entity)
         {
-            DBSet.Remove(new TEntity { Id = id });
+            DBSet.Remove(entity);
             await SaveChanges();
         }
         #endregion
@@ -59,10 +68,10 @@ namespace Data.Repository
 
         public virtual async Task<TEntity> PesquisarId(Guid id)
         {
-            return await DBSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            return await DBSet.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public virtual bool ExisteEntidade(Guid id)
+        public virtual bool ExistePorId(Guid id)
         {
             return DBSet.AsNoTracking().Any(x => x.Id == id);
         }

@@ -42,7 +42,8 @@ namespace Business.Services
 
         public async Task Excluir(Guid id)
         {
-            await _paisRepository.Excluir(id);
+            var entity = await _paisRepository.PesquisarId(id);
+            await _paisRepository.Excluir(entity);
         }
 
         public async Task<Pais> ObterPaisEstados(Guid id)

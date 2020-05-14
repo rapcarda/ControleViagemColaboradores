@@ -21,3 +21,5 @@ C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagem
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.pdb
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\obj\Debug\netcoreapp2.2\API.genruntimeconfig.cache
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\API\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.xml

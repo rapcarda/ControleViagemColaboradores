@@ -2,6 +2,7 @@
 using Business.Models;
 using Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Data.Repository
 
         public bool ExisteDescricao(Empresa empresa)
         {
+            
             return DBSet.AsNoTracking().Any(x => x.Nome == empresa.Nome && x.Id != empresa.Id);
         }
 

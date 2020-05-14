@@ -41,7 +41,8 @@ namespace Business.Services
 
         public async Task Excluir(Guid id)
         {
-            await _empresaRepository.Excluir(id);
+            var entity = await _empresaRepository.PesquisarId(id);
+            await _empresaRepository.Excluir(entity);
         }
 
         public async Task<IEnumerable<Empresa>> GetEmpresaComCidade()
@@ -77,7 +78,7 @@ namespace Business.Services
 
         public bool ExisteCidade(Empresa empresa)
         {
-            return _cidadeRepository.ExisteEntidade(empresa.CidadeId);
+            return _cidadeRepository.ExistePorId(empresa.CidadeId);
         }
 
         private bool IsValid(Empresa entity)
