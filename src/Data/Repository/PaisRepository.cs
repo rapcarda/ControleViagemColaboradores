@@ -18,7 +18,6 @@ namespace Data.Repository
         public async Task<Pais> ObterPaisEstados(Guid id)
         {
             return await DBSet.AsNoTracking().Include(x => x.Estados).FirstOrDefaultAsync(x => x.Id == id);
-            
         }
 
         public bool ExistePais(Guid id)

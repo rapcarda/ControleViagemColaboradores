@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Business.Interfaces
 {
@@ -17,6 +18,8 @@ namespace Business.Interfaces
         bool IsInRole(string role);
 
         IEnumerable<Claim> GetClaimsIdentity();
+
+        string GetAccessToken();
 
     }
 }

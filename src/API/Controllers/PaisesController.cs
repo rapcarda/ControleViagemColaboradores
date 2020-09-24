@@ -1,5 +1,6 @@
 ﻿using API.Extensions;
 using API.ViewModel;
+using API.ViewModel.Util;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Models;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -76,13 +78,25 @@ namespace API.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<PaisViewModel>> Delete(Guid id)
         {
-            var pais = _mapper.Map<PaisViewModel>(await _paisService.PesquisarId(id));
+            var pais = await _paisService.PesquisarId(id);
 
             if (pais == null)
                 return NotFound();
+ 
+            var paisModel = _mapper.Map<PaisViewModel>(pais);
 
             await _paisService.Excluir(id);
+
             return CustomResponse();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("GetPaisCombo")]
+        public async Task<ActionResult<IEnumerable<ResponseGetCombo>>> GetCombo()
+        {
+            var result = await _paisService.ObterTodos();
+
+            return result.Select(x => new ResponseGetCombo { Codigo = string.Empty, Descricao = x.Descricao, Id = x.Id }).ToList();
         }
 
     }

@@ -1,8 +1,10 @@
 ﻿using Business.Interfaces;
+using Business.Interfaces.Repository;
 using Business.Models;
 using Business.Validation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -11,11 +13,14 @@ namespace Business.Services
     public class PaisService : BaseService<Pais>, IPaisService
     {
         protected readonly IPaisRepository _paisRepository;
+        protected readonly IEstadoRepository _estadoRepository;
 
         public PaisService(IPaisRepository paisRepository,
+                           IEstadoRepository estadoRepository,
                            INotificador notificador) : base(notificador)
         {
             _paisRepository = paisRepository;
+            _estadoRepository = estadoRepository;
         }
 
         public async Task Adicionar(Pais entity)
@@ -42,12 +47,20 @@ namespace Business.Services
 
         public async Task Excluir(Guid id)
         {
-            var entity = await _paisRepository.PesquisarId(id);
-            await _paisRepository.Excluir(entity);
+            if (_estadoRepository.ExistePaisVinculado(id))
+            {
+                Notificar("Existem estados vinculados ao país. Exclusão não permitida.");
+            } 
+            else
+            {
+                var entity = await _paisRepository.PesquisarId(id);
+                await _paisRepository.Excluir(entity);
+            }
         }
 
         public async Task<Pais> ObterPaisEstados(Guid id)
         {
+            
             return await _paisRepository.ObterPaisEstados(id);
         }
 

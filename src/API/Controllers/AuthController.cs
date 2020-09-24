@@ -45,9 +45,17 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return CustomResponse(ModelState);
 
+            var emailValid = await _userManager.FindByEmailAsync(registerUser.Email);
+
+            if (emailValid != null)
+            {
+                NotificarErro("Email já cadastrado.");
+                return CustomResponse(registerUser);
+            }
+
             var user = new IdentityUser
             {
-                UserName = registerUser.Email,
+                UserName = registerUser.Name,
                 Email = registerUser.Email,
                 /* Esta propriedade é para quando se registrar o identity enviar um email, solicitando que o usuário confirme pelo email */
                 /* setando para true, irá dizer que ao registrar, não precisa enviar email de confirmação */
@@ -72,13 +80,42 @@ namespace API.Controllers
             return CustomResponse(registerUser);
         }
 
+        [HttpGet("load-session")]
+        public async Task<ActionResult> GetToken()
+        {
+            if (UsuarioAutenticado)
+            {
+                var response = new LoginResponseViewModel
+                {
+                    AccessToken = AccessToken,
+                    UserToken = new UserTokenViewModel
+                    {
+                        Id = UsuarioId.ToString(),
+                        Username = UsuarioName,
+                        Email = UsuarioEmail,
+                        Claims = null
+                    }
+                };
+                return CustomResponse(response);
+            }
+            return Unauthorized();
+        }
+
         [HttpPost("entrar")]
         public async Task<ActionResult> Login(LoginUserViewModel loginUser)
         {
             if (!ModelState.IsValid)
                 return CustomResponse(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
+            var user = await _userManager.FindByEmailAsync(loginUser.Email);
+
+            if (user == null)
+            {
+                NotificarErro("Nenhum usuário cadastrado com este email.");
+                return CustomResponse(loginUser);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, loginUser.Password, false, true);
 
             if (result.Succeeded)
             {
@@ -91,7 +128,7 @@ namespace API.Controllers
                 return CustomResponse(loginUser);
             }
 
-            NotificarErro("Usuário ou senha incorretos.");
+            NotificarErro("Email ou senha incorretos.");
             return CustomResponse(loginUser);
         }
 
@@ -149,6 +186,7 @@ namespace API.Controllers
                 UserToken = new UserTokenViewModel
                 {
                     Id = user.Id,
+                    Username = user.UserName,
                     Email = user.Email,
                     Claims = responseClaims
                 }

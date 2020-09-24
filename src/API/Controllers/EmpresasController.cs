@@ -33,7 +33,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmpresaViewModel>>> Get()
         {
-            return Ok(_mapper.Map<IEnumerable<EmpresaViewModel>>(await _empresaService.ObterTodos()));
+            return Ok(_mapper.Map<IEnumerable<EmpresaViewModel>>(await _empresaService.GetEmpresaComCidade()));
         }
 
         [ClaimsAuthorize("empresa", "getId")]

@@ -1,5 +1,6 @@
 ﻿using API.Extensions;
 using API.ViewModel;
+using API.ViewModel.Util;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Interfaces.Service;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -84,6 +86,15 @@ namespace API.Controllers
 
             await _cidadeService.Excluir(id);
             return CustomResponse();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("GetCidadeCombo")]
+        public async Task<ActionResult<IEnumerable<ResponseGetCombo>>> GetCombo()
+        {
+            var result = await _cidadeService.ObterTodos();
+
+            return result.Select(x => new ResponseGetCombo { Codigo = string.Empty, Descricao = x.Descricao, Id = x.Id }).ToList();
         }
     }
 }

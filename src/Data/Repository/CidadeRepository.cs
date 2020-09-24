@@ -2,6 +2,7 @@
 using Business.Models;
 using Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +23,11 @@ namespace Data.Repository
         public async Task<IEnumerable<Cidade>> ObterCidadesEstadosPaises()
         {
             return await DBSet.AsNoTracking().Include(x => x.Estado).ThenInclude(y => y.Pais).ToListAsync();
+        }
+
+        public bool ExisteEstadoVinculado(Guid estadoId)
+        {
+            return DBSet.AsNoTracking().Any(x => x.EstadoId == estadoId);
         }
     }
 }

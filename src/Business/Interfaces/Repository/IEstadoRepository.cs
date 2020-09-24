@@ -11,5 +11,7 @@ namespace Business.Interfaces.Repository
         Task<IEnumerable<Estado>> ObterEstadosPaises();
         bool ExisteDescricao(Estado entity);
         bool ExisteEstado(Guid id);
+
+        bool ExistePaisVinculado(Guid paisId);
     }
 }

@@ -35,5 +35,10 @@ namespace Data.Repository
         {
             return await DBSet.AsNoTracking().Include(x => x.Pais).ToListAsync();
         }
+
+        public bool ExistePaisVinculado(Guid paisId)
+        {
+            return DBSet.AsNoTracking().Any(x => x.PaisId == paisId);
+        }
     }
 }

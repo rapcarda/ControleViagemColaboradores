@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Extensions;
 using API.ViewModel;
+using API.ViewModel.Util;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Interfaces.Service;
@@ -86,6 +87,15 @@ namespace API.Controllers
 
             await _estadoService.Excluir(id);
             return CustomResponse();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("GetEstadoCombo")]
+        public async Task<ActionResult<IEnumerable<ResponseGetCombo>>> GetCombo()
+        {
+            var result = await _estadoService.ObterTodos();
+
+            return result.Select(x => new ResponseGetCombo { Codigo = string.Empty, Descricao = x.Descricao, Id = x.Id }).ToList();
         }
     }
 }

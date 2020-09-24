@@ -40,11 +40,11 @@ namespace API.Configuration
                     .AllowCredentials());
 
                 /* Adicionou uma politica de CORS, para acesso externo na APP, para produção */
-                options.AddPolicy("Production",
-                    builder => builder
-                    .WithMethods("GET")
-                    .WithOrigins("http://qualquer.com") //somente este site pode fazer get na app
-                    .SetIsOriginAllowedToAllowWildcardSubdomains());
+                //options.AddPolicy("Production",
+                //    builder => builder
+                //    .WithMethods("GET")
+                //    .WithOrigins("http://qualquer.com") //somente este site pode fazer get na app
+                //    .SetIsOriginAllowedToAllowWildcardSubdomains());
 
             });
 

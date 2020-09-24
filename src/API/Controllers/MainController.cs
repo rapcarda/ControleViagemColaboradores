@@ -15,7 +15,10 @@ namespace API.Controllers
 
         /* Propriedades para facilitar o acesso aos dados do usuário, para não precisar ficar AppUser.GetId, etc */
         protected Guid UsuarioId { get; set; }
+        protected string UsuarioName { get; set; }
+        protected string UsuarioEmail { get; set; }
         protected bool UsuarioAutenticado { get; set; }
+        protected string AccessToken { get; set; }
 
         public MainController(INotificador notificador,
                               IUser appUser)
@@ -26,7 +29,10 @@ namespace API.Controllers
             if (appUser.IsAuthenticated())
             {
                 UsuarioId = appUser.GetUserId();
+                UsuarioName = appUser.Name;
+                UsuarioEmail = appUser.GetUserEmail();
                 UsuarioAutenticado = true;
+                AccessToken = appUser.GetAccessToken();
             }
         }
 

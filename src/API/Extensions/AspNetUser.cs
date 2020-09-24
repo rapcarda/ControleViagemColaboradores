@@ -1,8 +1,13 @@
 ﻿using Business.Interfaces;
+using Google.Protobuf.WellKnownTypes;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace API.Extensions
 {
@@ -17,6 +22,16 @@ namespace API.Extensions
         }
 
         public string Name => _accessor.HttpContext.User.Identity.Name;
+
+        public string GetAccessToken()
+        {
+            var authorizationHeader = _accessor.HttpContext.Request.Headers["authorization"];
+
+            //return await _accessor.HttpContext.GetTokenAsync("access_token");
+            return authorizationHeader == StringValues.Empty
+                ? string.Empty
+                : authorizationHeader.Single().Split(" ").Last();
+        }
 
         public Guid GetUserId()
         {

@@ -12,15 +12,18 @@ namespace Business.Services
 {
     public class CidadeService : BaseService<Cidade>, ICidadeService
     {
-        private ICidadeRepository _cidadeRepository;
-        private IEstadoRepository _estadoRespository;
+        private readonly ICidadeRepository _cidadeRepository;
+        private readonly IEstadoRepository _estadoRespository;
+        private readonly IEmpresaRepository _empresaRepository;
 
         public CidadeService(ICidadeRepository cidadeRespository,
                              IEstadoRepository estadoRepository,
+                             IEmpresaRepository empresaRepository,
                              INotificador notificador): base(notificador)
         {
             _cidadeRepository = cidadeRespository;
             _estadoRespository = estadoRepository;
+            _empresaRepository = empresaRepository;
         }
 
         public async Task Adicionar(Cidade entity)
@@ -41,8 +44,15 @@ namespace Business.Services
 
         public async Task Excluir(Guid id)
         {
-            var entity = await _cidadeRepository.PesquisarId(id);
-            await _cidadeRepository.Excluir(entity);
+            if (_empresaRepository.ExisteCidadeVinculado(id))
+            {
+                Notificar("Existem empresas vinculadas a cidade. Exclusão não permitida.");
+            }
+            else
+            {
+                var entity = await _cidadeRepository.PesquisarId(id);
+                await _cidadeRepository.Excluir(entity);
+            }
         }
 
         public async Task<IEnumerable<Cidade>> ObterCidadesEstadosPaises()
