@@ -4,14 +4,16 @@ using Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(MeuDbContext))]
-    partial class MeuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200928124028_AddFuncionario")]
+    partial class AddFuncionario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -168,32 +170,6 @@ namespace Data.Migrations
                     b.ToTable("Paises");
                 });
 
-            modelBuilder.Entity("Business.Models.Veiculo", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Codigo")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<Guid>("EmpresaId");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Placa")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmpresaId");
-
-                    b.ToTable("Veiculo");
-                });
-
             modelBuilder.Entity("Business.Models.Cidade", b =>
                 {
                     b.HasOne("Business.Models.Estado", "Estado")
@@ -235,13 +211,6 @@ namespace Data.Migrations
                     b.HasOne("Business.Models.Departamento", "Departamento")
                         .WithMany()
                         .HasForeignKey("DepartamentoId");
-                });
-
-            modelBuilder.Entity("Business.Models.Veiculo", b =>
-                {
-                    b.HasOne("Business.Models.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("EmpresaId");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,13 +14,13 @@ C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagem
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\Data.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\Data.pdb
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\Business.dll
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\Business.pdb
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.xml
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.csprojAssemblyReference.cache
-C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.csproj.CoreCompileInputs.cache
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.AssemblyInfoInputs.cache
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.AssemblyInfo.cs
+C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.csproj.CoreCompileInputs.cache
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.csproj.CopyComplete
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.dll
 C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\obj\Debug\netcoreapp2.2\Data.pdb
-C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.dll
-C:\Particular\Estudo\C#\ProjetosParticulares\ControleViagemAPI_v2\ControleViagemAPI\src\Data\bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.xml

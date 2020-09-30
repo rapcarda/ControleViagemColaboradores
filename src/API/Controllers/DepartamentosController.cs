@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Extensions;
 using API.ViewModel;
+using API.ViewModel.Util;
 using AutoMapper;
 using Business.Interfaces;
 using Business.Interfaces.Service;
@@ -102,6 +103,15 @@ namespace API.Controllers
                 EmpresaId = x,
                 DepartamentoId = deptoViewModel.Id
             });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("GetDepartamentoCombo")]
+        public async Task<ActionResult<IEnumerable<ResponseGetCombo>>> GetCombo()
+        {
+            var result = await _departamentoService.ObterTodos();
+
+            return result.Select(x => new ResponseGetCombo { Codigo = x.Codigo, Descricao = x.Nome, Id = x.Id }).ToList();
         }
     }
 }

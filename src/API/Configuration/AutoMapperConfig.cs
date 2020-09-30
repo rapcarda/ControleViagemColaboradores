@@ -33,6 +33,15 @@ namespace API.Configuration
                 // })));
             CreateMap<Departamento, DepartamentoViewModel>()
                 .ForMember(dest => dest.EmpresasId, opt => opt.MapFrom(src => src.EmpresasDepartamento.Select(e => e.EmpresaId)));
+
+            CreateMap<FuncionarioViewModel, Funcionario>();
+            CreateMap<Funcionario, FuncionarioViewModel>()
+                .ForMember(dest => dest.NomeCidade, opt => opt.MapFrom(src => src.Cidade.Descricao))
+                .ForMember(dest => dest.NomeDepartamento, opt => opt.MapFrom(src => src.Departamento.Nome));
+
+            CreateMap<VeiculoViewModel, Veiculo>();
+            CreateMap<Veiculo, VeiculoViewModel>()
+                .ForMember(dest => dest.NomeEmpresa, opt => opt.MapFrom(src => src.Empresa.Nome));
         }
     }
 }

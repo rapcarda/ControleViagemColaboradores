@@ -17,6 +17,8 @@ namespace Data.Context
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Departamento> Departamento { get; set; }
         public DbSet<EmprDept> EmprDept { get; set; }
+        public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<Veiculo> Veiculo { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

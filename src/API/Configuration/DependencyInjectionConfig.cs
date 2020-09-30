@@ -28,6 +28,10 @@ namespace API.Configuration
             services.AddScoped<IDepartamentoRepository, DepartamentoRepository>();
             services.AddScoped<IDepartamentoService, DepartamentoService>();
             services.AddScoped<IEmprDeptRepository, EmprDeptRepositoy>();
+            services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+            services.AddScoped<IFuncionarioService, FuncionarioService>();
+            services.AddScoped<IVeiculoRepositoy, VeiculoRepository>();
+            services.AddScoped<IVeiculoService, VeiculoService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();

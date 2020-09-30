@@ -11,5 +11,6 @@ namespace Business.Interfaces.Repository
         Task<IEnumerable<Departamento>> GetDepartamentoComEmpresa();
         bool ExisteCodigo(Departamento dpto);
         bool ExisteDescricao(Departamento dpto);
+        bool ExisteEmpresaVinculado(Guid empresaId);
     }
 }

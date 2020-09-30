@@ -35,5 +35,10 @@ namespace Data.Repository
         {
             return await DBSet.AsNoTracking().Include(r => r.EmpresasDepartamento).ToListAsync();
         }
+
+        public bool ExisteEmpresaVinculado(Guid empresaId)
+        {
+            return DBSet.AsNoTracking().Any(x => x.EmpresasDepartamento.Any(y => y.EmpresaId == empresaId));
+        }
     }
 }

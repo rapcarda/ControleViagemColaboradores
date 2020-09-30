@@ -14,13 +14,16 @@ namespace Business.Services
     {
         private readonly IEmpresaRepository _empresaRepository;
         private readonly ICidadeRepository _cidadeRepository;
+        private readonly IDepartamentoRepository _departamentoRepository;
 
         public EmpresaService(IEmpresaRepository empresaRepository,
                               ICidadeRepository cidadeRepository,
+                              IDepartamentoRepository departamentoRepository,
                               INotificador notificador): base(notificador)
         {
             _empresaRepository = empresaRepository;
             _cidadeRepository = cidadeRepository;
+            _departamentoRepository = departamentoRepository;
         }
 
         public async Task Adicionar(Empresa entity)
@@ -41,8 +44,15 @@ namespace Business.Services
 
         public async Task Excluir(Guid id)
         {
-            var entity = await _empresaRepository.PesquisarId(id);
-            await _empresaRepository.Excluir(entity);
+            if (_departamentoRepository.ExisteEmpresaVinculado(id))
+            {
+                Notificar("Existem departamentos vinculados a empresa. Exclusão não permitida.");
+            }
+            else
+            {
+                var entity = await _empresaRepository.PesquisarId(id);
+                await _empresaRepository.Excluir(entity);
+            }
         }
 
         public async Task<IEnumerable<Empresa>> GetEmpresaComCidade()
